@@ -24,7 +24,7 @@
       "seed": 978319703,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397925,
       "link": null,
       "locked": false
@@ -50,7 +50,7 @@
       "seed": 1304963993,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -84,7 +84,7 @@
       "seed": 1926542967,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -125,7 +125,7 @@
       "seed": 1912917911,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false
@@ -151,7 +151,7 @@
       "seed": 958585177,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -185,7 +185,7 @@
       "seed": 34915511,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -226,7 +226,7 @@
       "seed": 849941975,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false
@@ -252,7 +252,7 @@
       "seed": 2021463833,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -286,7 +286,7 @@
       "seed": 718684919,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -327,7 +327,7 @@
       "seed": 992005143,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false
@@ -353,7 +353,7 @@
       "seed": 489874649,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -387,7 +387,7 @@
       "seed": 796733751,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -428,7 +428,7 @@
       "seed": 1632629335,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false
@@ -454,7 +454,7 @@
       "seed": 295715481,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632402773,
       "link": null,
       "locked": false,
@@ -488,7 +488,7 @@
       "seed": 158175095,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -529,7 +529,7 @@
       "seed": 1377470615,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false
@@ -555,7 +555,7 @@
       "seed": 1495347289,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -589,7 +589,7 @@
       "seed": 688610743,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -630,7 +630,7 @@
       "seed": 1365544663,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -664,7 +664,7 @@
       "seed": 1343335961,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632585676,
       "link": null,
       "locked": false,
@@ -698,7 +698,7 @@
       "seed": 901422071,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -732,7 +732,7 @@
       "seed": 231113465,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -766,7 +766,7 @@
       "seed": 2048001303,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -800,7 +800,7 @@
       "seed": 1808645081,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397926,
       "link": null,
       "locked": false,
@@ -834,7 +834,7 @@
       "seed": 2058443161,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false
@@ -860,7 +860,7 @@
       "seed": 1188915319,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -894,7 +894,7 @@
       "seed": 778354297,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -935,7 +935,7 @@
       "seed": 1679329113,
       "groupIds": [],
       "roundness": null,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -947,92 +947,6 @@
       "verticalAlign": "top",
       "containerId": null,
       "originalText": "name: \"Burger\"\n\nprice: 8.99"
-    },
-    {
-      "type": "line",
-      "version": 171,
-      "versionNonce": 778525783,
-      "isDeleted": false,
-      "id": "Bv59wSeY-X3oWlNAeCOgR",
-      "fillStyle": "hachure",
-      "strokeWidth": 1,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 3124.825176236624,
-      "y": 1539.5323700307697,
-      "strokeColor": "#000000",
-      "backgroundColor": "transparent",
-      "width": 250.01632690429665,
-      "height": 218.10707092285145,
-      "seed": 1176515641,
-      "groupIds": [],
-      "roundness": {
-        "type": 2
-      },
-      "boundElements": null,
-      "updated": 1675632397927,
-      "link": null,
-      "locked": false,
-      "startBinding": null,
-      "endBinding": null,
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": null,
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          250.01632690429665,
-          -218.10707092285145
-        ]
-      ]
-    },
-    {
-      "type": "line",
-      "version": 255,
-      "versionNonce": 1401714841,
-      "isDeleted": false,
-      "id": "RlQ4YBVJdVXjW4iDDcwU-",
-      "fillStyle": "hachure",
-      "strokeWidth": 1,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 3128.678958801463,
-      "y": 1546.8013953920188,
-      "strokeColor": "#000000",
-      "backgroundColor": "transparent",
-      "width": 388.8020324707029,
-      "height": 230.3874969482422,
-      "seed": 1381435351,
-      "groupIds": [],
-      "roundness": {
-        "type": 2
-      },
-      "boundElements": null,
-      "updated": 1675632397927,
-      "link": null,
-      "locked": false,
-      "startBinding": null,
-      "endBinding": null,
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": null,
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          388.8020324707029,
-          -230.3874969482422
-        ]
-      ]
     },
     {
       "type": "line",
@@ -1057,7 +971,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1100,7 +1014,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1147,7 +1061,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1194,7 +1108,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1237,7 +1151,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1280,7 +1194,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1323,7 +1237,7 @@
       "roundness": {
         "type": 2
       },
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1675632397927,
       "link": null,
       "locked": false,
@@ -1342,6 +1256,53 @@
           -231.74703499799477
         ]
       ]
+    },
+    {
+      "id": "ECbt3qttW4GhqaJH1SHWV",
+      "type": "line",
+      "x": 2585.365223804414,
+      "y": 1948.9667512908793,
+      "width": 1123.4935149863759,
+      "height": 88.7629427792915,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1180978933,
+      "version": 109,
+      "versionNonce": 1039115419,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1675633101364,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          551.614931880109,
+          88.7629427792915
+        ],
+        [
+          1123.4935149863759,
+          21.716948228882984
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": null,
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": null
     }
   ],
   "appState": {
