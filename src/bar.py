@@ -6,9 +6,9 @@ class Bar:
         self.drinks_list = []
         self.foods_list = []
 
-    def sell_drink(self, drink, guest):
+    def sell_drink(self, drink, guest, room):
         pass
 
-    def sell_food(self, food, guest):
+    def sell_food(self, food, guest, room):
         pass
     

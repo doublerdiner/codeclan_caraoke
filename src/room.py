@@ -5,13 +5,26 @@ class Room:
         self.playlist = []
 
     def add_song_to_playlist(self, song):
-        pass
+        self.playlist.append(song)
     
     def format_playlist_length(self):
-        pass
+        total_length = 0
+        for song in self.playlist:
+            total_length += song.length
+        hours = total_length // 3600
+        minutes = (total_length % 3600) // 60
+        seconds = ((total_length % 3600) % 60) % 60
+        if hours == 0:
+            return f"{minutes}:{seconds}"
+        else:
+            return f"{hours}:{minutes}:{seconds}"
+
     
     def wealth_of_the_room(self):
-        pass
+        total = 0
+        for person in self.guest_list:
+            total += person.money
+        return total
     
     def play_song(self):
-        pass
+        self.playlist.pop(0)
