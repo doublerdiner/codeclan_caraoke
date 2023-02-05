@@ -9,7 +9,7 @@ class TestReception(unittest.TestCase):
         self.guest_1 = Guest("David Byrne", 50.00, "Psycho Killer", True)
         self.guest_2 = Guest("Thom Yorke", 10.00, "Karma Police", False)
         self.room_1 = Room(6)
-        self.room_2 = Room(2)
+        self.room_2 = Room(1)
 
 # Test 1 - 3 - Reception has a till, entry_fee and coat_capacity
     def test_reception_has_till(self):
@@ -42,7 +42,7 @@ class TestReception(unittest.TestCase):
     def test_add_coat_to_cloakroom__guests_have_money(self):
         result = self.reception.add_coat_to_cloakroom(self.guest_1)
         self.assertEqual(48, self.guest_1.money)
-        self.assertEqual("Thank you for your coat", result)
+        self.assertEqual("Thank you for your coat.", result)
         self.assertEqual(1, len(self.reception.coat_list))
 
 # Test 8 - Add coat to cloakroom - no money
@@ -50,14 +50,14 @@ class TestReception(unittest.TestCase):
         self.guest_1.money = 1.50
         result = self.reception.add_coat_to_cloakroom(self.guest_1)
         self.assertEqual(1.50, self.guest_1.money)
-        self.assertEqual("I'm sorry. The cloakroom is £2.00", result)
+        self.assertEqual("I'm sorry. The cloakroom is £2.00.", result)
         self.assertEqual(0, len(self.reception.coat_list))
     
 # Test 9 - Add coat to cloakroom - Guest doesn't have a coat
     def test_add_coat_to_cloakroom__guest_has_no_coat(self):
         result = self.reception.add_coat_to_cloakroom(self.guest_2)
         self.assertEqual(10, self.guest_2.money)
-        self.assertEqual("You must be chilly", result)
+        self.assertEqual("You must be chilly.", result)
         self.assertEqual(0, len(self.reception.coat_list))
     
 # Test 10 - Return coat to guest - cloakroom holding coat
@@ -66,7 +66,7 @@ class TestReception(unittest.TestCase):
         self.guest_2.has_coat = True
         self.reception.add_coat_to_cloakroom(self.guest_2)
         result = self.reception.retrieve_coat_from_cloakroom(self.guest_1)
-        self.assertEqual("Here's your coat", result)
+        self.assertEqual("Here's your coat.", result)
         self.assertEqual(1, len(self.reception.coat_list))
         self.assertEqual(self.guest_2, self.reception.coat_list[0])
 
@@ -74,5 +74,36 @@ class TestReception(unittest.TestCase):
     def test_retrieve_coat_from_cloakroom__no_coat_held(self):
         self.reception.add_coat_to_cloakroom(self.guest_1)
         result = self.reception.retrieve_coat_from_cloakroom(self.guest_2)
-        self.assertEqual("We don't appear to have a coat for you", result)
+        self.assertEqual("We don't appear to have a coat for you.", result)
         self.assertEqual(1, len(self.reception.coat_list))
+
+# Test 12 - Add guest to room
+    def test_check_guest_in(self):
+        result = self.reception.check_guest_in(self.guest_1, self.room_1)
+        self.assertEqual(1, len(self.room_1.guest_list))
+        self.assertEqual(45.00, self.guest_1.money)
+        self.assertEqual(result, "Enjoy your night!")
+
+
+# Test 13 - Add guest to room - Room is full
+    def test_check_guest_in__room_is_full(self):
+        self.reception.check_guest_in(self.guest_1, self.room_2)
+        result = self.reception.check_guest_in(self.guest_2, self.room_2)
+        self.assertEqual(1, len(self.room_2.guest_list))
+        self.assertEqual(45.00, self.guest_1.money)
+        self.assertEqual(10.00, self.guest_2.money)
+        self.assertEqual(result, "I'm sorry. That room is full.")
+
+# Test 14 - Add guest to room - Guest has no money
+    def test_check_guest_in__guest_has_no_money(self):
+        self.guest_2.money = 3.00
+        result = self.reception.check_guest_in(self.guest_2, self.room_1)
+        self.assertEqual(0, len(self.room_1.guest_list))
+        self.assertEqual(3.00, self.guest_2.money)
+        self.assertEqual(result, "I'm sorry the entry fee is £5.00.")
+
+# Test 15 - Check guest out
+    def test_check_guest_out(self):
+        self.reception.check_guest_in(self.guest_1, self.room_1)
+        self.reception.check_guest_out(self.guest_1, self.room_1)
+        self.assertEqual(0, len(self.room_1.guest_list))
