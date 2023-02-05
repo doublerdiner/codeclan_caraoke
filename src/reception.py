@@ -16,7 +16,7 @@ class Reception:
         if self.does_room_have_capacity(room):
             guest.pay_money(5.00)
             if guest.has_enough_money:
-                room.guest_list.append(guest)
+                room.add_guest_to_guest_list(guest)
                 return "Enjoy your night!"
             else:
                 return "I'm sorry the entry fee is £5.00."
@@ -24,7 +24,7 @@ class Reception:
             return "I'm sorry. That room is full."
     
     def check_guest_out(self, guest, room):
-        room.guest_list.remove(guest)
+        room.remove_guest_from_guest_list(guest)
 
     def add_coat_to_cloakroom(self, guest):
         if guest.has_coat:

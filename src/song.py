@@ -6,6 +6,6 @@ class Song:
         self.genre = genre
 
     def format_song_length(self):
-        minute = self.length // 60
-        second = self.length % 60
-        return f"{minute}:{second}"
+        minutes = self.length // 60
+        seconds = self.length % 60
+        return f"{minutes}:{seconds}"

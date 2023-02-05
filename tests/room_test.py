@@ -48,9 +48,9 @@ class TestRoom(unittest.TestCase):
 
 # Test 7 - Check the wealth of the room
     def test_wealth_of_the_room(self):
-        self.room_1.guest_list.append(self.guest_1)
-        self.room_1.guest_list.append(self.guest_2)
-        result = self.room_1.wealth_of_the_room()
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_guest_to_guest_list(self.guest_2)
+        result = self.room_1.wealth_of_the_room
         self.assertEqual(result, 60)
 
 # Test 8 - Play a song
@@ -60,3 +60,17 @@ class TestRoom(unittest.TestCase):
         self.room_1.play_song()
         self.assertEqual(1, len(self.room_1.playlist))
         self.assertEqual(self.song_2, self.room_1.playlist[0])
+
+# Test 9 - Add guest to room
+    def test_add_guest_to_guest_list(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_guest_to_guest_list(self.guest_2)
+        self.assertEqual(2, len(self.room_1.guest_list))
+
+# Test 10 - Remove guest from room
+    def test_remove_guest_from_guest_list(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_guest_to_guest_list(self.guest_2)
+        self.room_1.remove_guest_from_guest_list(self.guest_1)
+        self.assertEqual(1, len(self.room_1.guest_list))
+        self.assertEqual(self.guest_2, self.room_1.guest_list[0])

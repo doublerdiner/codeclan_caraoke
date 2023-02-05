@@ -3,6 +3,7 @@ class Room:
         self.capacity = capacity
         self.guest_list = []
         self.playlist = []
+        self.wealth_of_the_room = 0
 
     def add_song_to_playlist(self, song):
         self.playlist.append(song)
@@ -18,13 +19,13 @@ class Room:
             return f"{minutes}:{seconds}"
         else:
             return f"{hours}:{minutes}:{seconds}"
-
-    
-    def wealth_of_the_room(self):
-        total = 0
-        for person in self.guest_list:
-            total += person.money
-        return total
-    
+      
     def play_song(self):
         self.playlist.pop(0)
+
+    def add_guest_to_guest_list(self, guest):
+        self.guest_list.append(guest)
+        self.wealth_of_the_room += guest.money
+
+    def remove_guest_from_guest_list(self, guest):
+        self.guest_list.remove(guest)
