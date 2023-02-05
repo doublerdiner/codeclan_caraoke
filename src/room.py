@@ -4,6 +4,7 @@ class Room:
         self.guest_list = []
         self.playlist = []
         self.wealth_of_the_room = 0
+        self.guest_money = 0
 
     def add_song_to_playlist(self, song):
         self.playlist.append(song)
@@ -26,6 +27,7 @@ class Room:
     def add_guest_to_guest_list(self, guest):
         self.guest_list.append(guest)
         self.wealth_of_the_room += guest.money
+        self.guest_money += guest.money
 
     def remove_guest_from_guest_list(self, guest):
         self.guest_list.remove(guest)

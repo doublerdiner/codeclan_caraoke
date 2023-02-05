@@ -63,8 +63,8 @@ class TestBar(unittest.TestCase):
         self.assertEqual(55.50, self.room_1.wealth_of_the_room)
         self.assertEqual([self.drink_1], self.bar.bar_tab[self.room_1])
     
-# # Test 9 - Sell drink to guest - guest is already holding a drink
-# # Same criteria as test 8
+# Test 9 - Sell drink to guest - guest is already holding a drink
+# Same criteria as test 8
     def test_sell_drink__guest_has_money_and_has_drink__True(self):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.room_1.add_guest_to_guest_list(self.guest_2)
@@ -106,7 +106,7 @@ class TestBar(unittest.TestCase):
         self.assertEqual([self.drink_1, self.drink_2], self.bar.bar_tab[self.room_1])
         self.assertEqual([self.drink_1], self.bar.bar_tab[self.room_2])
     
-    # Test 11 - Sell drink to guest - Drink not available
+# Test 12 - Sell drink to guest - Drink not available
     def test_sell_drink__drink_not_in_stock(self):
         self.room_1.add_guest_to_guest_list(self.guest_1)
         self.bar.add_drink_to_bar(self.drink_1)
@@ -117,3 +117,93 @@ class TestBar(unittest.TestCase):
         self.assertEqual(45.50, self.room_1.wealth_of_the_room)
         self.assertEqual([self.drink_1], self.bar.bar_tab[self.room_1])
         self.assertEqual("We don't have that drink in stock.", result)
+
+# Test 13 - Same as test 8 but for food
+    def test_sell_food__guest_has_money_and_has_food__False(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_guest_to_guest_list(self.guest_2)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.add_food_to_bar(self.food_2)
+        self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        self.assertEqual(1, len(self.bar.bar_tab))
+        self.assertEqual(1, len(self.bar.foods_list))
+        self.assertEqual(51.01, self.room_1.wealth_of_the_room)
+        self.assertEqual([self.food_1], self.bar.bar_tab[self.room_1])
+
+# Test 14 - Same as test 9 but for food. 
+    def test_sell_food__guest_has_money_and_has_food__True(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_guest_to_guest_list(self.guest_2)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.add_food_to_bar(self.food_2)
+        self.guest_1.has_food = True
+        result = self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        self.assertEqual(0, len(self.bar.bar_tab))
+        self.assertEqual(2, len(self.bar.foods_list))
+        self.assertEqual(60, self.room_1.wealth_of_the_room)
+        self.assertEqual("You already appear to have food.", result)
+
+# Test 15 - Same as test 10 but for food
+    def test_sell_food__guest_has_no_money(self):
+        self.guest_1.money = 2.00
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.add_food_to_bar(self.food_2)
+        self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        self.assertEqual(1, len(self.bar.bar_tab))
+        self.assertEqual(2, len(self.bar.foods_list))
+        self.assertEqual(2, self.room_1.wealth_of_the_room)
+        self.assertEqual([], self.bar.bar_tab[self.room_1])
+
+# Test 16 - Same as test 11 but for food
+    def test_sell_food__guest_has_money_and_has_food__False_multiple_rooms(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_2.add_guest_to_guest_list(self.guest_2)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.add_food_to_bar(self.food_2)
+        self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        self.bar.sell_food(self.food_2, self.guest_1, self.room_1)
+        self.bar.sell_food(self.food_1, self.guest_2, self.room_2)
+        self.assertEqual(2, len(self.bar.bar_tab))
+        self.assertEqual(0, len(self.bar.foods_list))
+        self.assertEqual(34.51, self.room_1.wealth_of_the_room)
+        self.assertEqual(1.01, round(self.room_2.wealth_of_the_room, 2))
+        self.assertEqual([self.food_1, self.food_2], self.bar.bar_tab[self.room_1])
+        self.assertEqual([self.food_1], self.bar.bar_tab[self.room_2])
+    
+# Test 17 - Sell food to guest - Food not available
+    def test_sell_food__food_not_in_stock(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        result = self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        self.assertEqual(1, len(self.bar.bar_tab))
+        self.assertEqual(0, len(self.bar.foods_list))
+        self.assertEqual(41.01, self.room_1.wealth_of_the_room)
+        self.assertEqual([self.food_1], self.bar.bar_tab[self.room_1])
+        self.assertEqual("We don't have that food in stock.", result)
+
+# Test 18 - Settle food and drink bill for a room
+# Adding 2 guests to room 1
+# Adding food and drinks to the bar
+# buying 4 items from the bar
+# Checking length of bar tab
+    def test_settle_food_and_drink_bill(self):
+        self.room_1.add_guest_to_guest_list(self.guest_1)
+        self.room_1.add_guest_to_guest_list(self.guest_2)
+        self.bar.add_drink_to_bar(self.drink_1)
+        self.bar.add_drink_to_bar(self.drink_2)
+        self.bar.add_food_to_bar(self.food_1)
+        self.bar.add_food_to_bar(self.food_2)
+        self.bar.sell_drink(self.drink_1, self.guest_1, self.room_1)
+        self.bar.sell_drink(self.drink_2, self.guest_1, self.room_1)
+        self.bar.sell_food(self.food_1, self.guest_1, self.room_1)
+        self.bar.sell_food(self.food_2, self.guest_2, self.room_1)
+        self.bar.settle_bill(self.room_1)
+        self.assertEqual(0, len(self.bar.bar_tab))
+        self.assertEqual(29.01, round(self.room_1.wealth_of_the_room, 2))
+        self.assertEqual(14.50, self.guest_1.money)
+        self.assertEqual(14.50, self.guest_2.money)
+        self.assertEqual(180.99, self.bar.till)
+

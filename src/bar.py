@@ -28,7 +28,26 @@ class Bar:
             return "You don't appear to be able to buy this drink."
 
     def sell_food(self, food, guest, room):
-        pass
+        if guest.has_food == True:
+            return "You already appear to have food."
+        elif food not in self.foods_list:
+            return "We don't have that food in stock."
+        elif room not in self.bar_tab:
+            self.bar_tab[room] = []        
+        if room.wealth_of_the_room > food.price:
+            self.foods_list.remove(food)
+            guest.has_food == True
+            room.wealth_of_the_room -= food.price
+            self.bar_tab[room].append(food)
+        else: 
+            return "You don't appear to be able to buy this food."
     
     def settle_bill(self, room):
-        pass
+        total = 0
+        for item in self.bar_tab[room]:
+            total += item.price
+        room.guest_money -= total
+        self.till += total
+        for person in room.guest_list:
+            person.money = round(room.guest_money / len(room.guest_list), 2)
+        self.bar_tab.pop(room)
