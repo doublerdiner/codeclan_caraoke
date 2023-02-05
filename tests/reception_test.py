@@ -71,7 +71,7 @@ class TestReception(unittest.TestCase):
         result = self.reception.retrieve_coat_from_cloakroom(self.guest_1)
         self.assertEqual("Here's your coat.", result)
         self.assertEqual(1, len(self.reception.coat_list))
-        self.assertEqual(self.guest_2, self.reception.coat_list[0])
+        self.assertEqual(self.guest_2.name, self.reception.coat_list[0])
 
 # Test 11 - Return coat to guest - cloakroom not holding coat
     def test_retrieve_coat_from_cloakroom__no_coat_held(self):

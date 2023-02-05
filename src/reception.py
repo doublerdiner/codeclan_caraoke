@@ -36,7 +36,8 @@ class Reception:
         elif guest.has_coat:
             guest.pay_money(2.00)
             if guest.has_enough_money:
-                self.coat_list.append(guest)
+                guest.has_coat = False
+                self.coat_list.append(guest.name)
                 return "Thank you for your coat."
             else:
                 return "I'm sorry. The cloakroom is £2.00."
@@ -44,8 +45,9 @@ class Reception:
 
     def retrieve_coat_from_cloakroom(self, guest):
         for person in self.coat_list:
-            if person.name == guest.name:
+            if person == guest.name:
                 self.coat_list.remove(person)
+                guest.has_coat = True
                 return "Here's your coat."
             else:
                 return "We don't appear to have a coat for you."
