@@ -46,4 +46,12 @@ class TestGuest(unittest.TestCase):
     def test_guest_does_not_have_enough_money(self):
         result = self.guest_2.pay_money(12)
         self.assertEqual(10, self.guest_2.money)
-        self.assertEqual("Not enough money to pay for item", result)
+        self.assertEqual("Not enough money to pay", result)
+    
+# Test 8 - Guest can eat & drink
+    def test_guest_can_eat_and_drink(self):
+        self.guest_1.has_food = True
+        self.guest_1.has_drink = True
+        self.guest_1.eat_and_drink()
+        self.assertEqual(False, self.guest_1.has_food)
+        self.assertEqual(False, self.guest_1.has_drink)

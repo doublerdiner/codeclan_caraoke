@@ -6,6 +6,7 @@ class Guest:
         self.has_coat = has_coat
         self.has_drink = False
         self.has_food = False
+        self.has_enough_money = True
 
     def order_drink(self, drink, bar):
         pass
@@ -14,13 +15,16 @@ class Guest:
         pass
  
     def eat_and_drink(self):
-        pass
+        self.has_drink = False
+        self.has_food = False
 
     def hears_favourite_song(self, song):
         pass
     
     def pay_money(self, amount):
+        self.has_enough_money = True
         if amount > self.money:
-            return "Not enough money to pay for item"
+            self.has_enough_money = False
+            return "Not enough money to pay"
         else:
             self.money -= amount
