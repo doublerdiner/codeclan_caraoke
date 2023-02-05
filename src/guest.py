@@ -8,18 +8,14 @@ class Guest:
         self.has_food = False
         self.has_enough_money = True
 
-    def order_drink(self, drink, bar):
-        pass
-
-    def order_food(self, food, bar):
-        pass
- 
     def eat_and_drink(self):
         self.has_drink = False
         self.has_food = False
 
-    def hears_favourite_song(self, song):
-        pass
+    def favourite_song_in_playlist(self, room):
+        for song in room.playlist:
+            if song.name == self.favourite_song:
+                return "I can't belive this song is in the playlist. I love this song!"
     
     def pay_money(self, amount):
         self.has_enough_money = True

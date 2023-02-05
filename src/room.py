@@ -1,3 +1,5 @@
+import time
+
 class Room:
     def __init__(self, capacity):
         self.capacity = capacity
@@ -13,13 +15,9 @@ class Room:
         total_length = 0
         for song in self.playlist:
             total_length += song.length
-        hours = total_length // 3600
-        minutes = (total_length % 3600) // 60
-        seconds = ((total_length % 3600) % 60) % 60
-        if hours == 0:
-            return f"{minutes}:{seconds}"
-        else:
-            return f"{hours}:{minutes}:{seconds}"
+        if total_length >= 3600:
+            return time.strftime("%H:%M:%S", time.gmtime(total_length))
+        return time.strftime("%M:%S", time.gmtime(total_length))
       
     def play_song(self):
         self.playlist.pop(0)

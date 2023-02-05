@@ -1,23 +1,16 @@
 import unittest
 from src.guest import Guest
-from src.food import Food
-from src.drink import Drink
-from src.bar import Bar
-from src.reception import Reception
 from src.room import Room
+from src.song import Song
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
         self.guest_1 = Guest("David Byrne", 50.00, "Psycho Killer", True)
         self.guest_2 = Guest("Thom Yorke", 10.00, "Karma Police", False)
         self.room_1 = Room(6)
-        self.room_2 = Room(2)
-        self.reception = Reception(300.00, 7.50, 20)
-        self.food_1 = Food("Burger", 8.99)
-        self.food_2 = Food("Nachos", 6.50)
-        self.drink_1 = Drink("Beer", 4.50)
-        self.drink_2 = Drink("Mojito", 11.00)
-        self.bar = Bar("If You Like Pina Coladas", 150.00)
+        self.room_2 = Room(1)
+        self.song_1 = Song("Girl U Want", "Devo", 177, "New Wave")
+        self.song_2 = Song("Psycho Killer", "Talking Heads", 261, "New Wave")
 
 # Test 1 - 5 - Guest has a name, money, favourite song and coat
 
@@ -55,3 +48,16 @@ class TestGuest(unittest.TestCase):
         self.guest_1.eat_and_drink()
         self.assertEqual(False, self.guest_1.has_food)
         self.assertEqual(False, self.guest_1.has_drink)
+
+# Test 9 - Guest sees their favourite song in the playlist
+    def test_favourite_song_in_playlist(self):
+        self.room_1.add_song_to_playlist(self.song_2)
+        result = self.guest_1.favourite_song_in_playlist(self.room_1)
+        self.assertEqual("I can't belive this song is in the playlist. I love this song!", result)
+
+# Test 10 - The guest's favourite song is not on the playlist
+    def test_favourite_song_in_playlist__None(self):
+        self.room_1.add_song_to_playlist(self.song_1)
+        self.room_1.add_song_to_playlist(self.song_2)
+        result = self.guest_2.favourite_song_in_playlist(self.room_1)
+        self.assertEqual(None, result)

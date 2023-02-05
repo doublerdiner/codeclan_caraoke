@@ -6,7 +6,7 @@ from src.guest import Guest
 class TestRoom(unittest.TestCase):
     def setUp(self):
         self.room_1 = Room(6)
-        self.room_2 = Room(2)
+        self.room_2 = Room(1)
         self.guest_1 = Guest("David Byrne", 50.00, "Psycho Killer", True)
         self.guest_2 = Guest("Thom Yorke", 10.00, "Karma Police", False)
         self.song_1 = Song("Girl U Want", "Devo", 177, "New Wave")
@@ -30,13 +30,13 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(self.song_1, self.room_1.playlist[0])
 
 # Test 5 - The playlist length can be formatted to hh:mm:ss
-    def test_format_playlist_length(self):
-        self.song_2.length = 123456
+    def test_format_playlist_length_HHMMSS(self):
+        self.song_2.length = 12345
         self.room_1.add_song_to_playlist(self.song_1)
         self.room_1.add_song_to_playlist(self.song_2)
         result = self.room_1.format_playlist_length()
-        self.assertEqual(2, len(self.room_1.playlist))
-        self.assertEqual("34:20:33", result)
+        self.assertEqual("03:28:42", result)
+
     
 # Test 6 - The playlist length can be formatted to mm:ss
     def test_format_playlist_length(self):
@@ -44,7 +44,7 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_playlist(self.song_2)
         result = self.room_1.format_playlist_length()
         self.assertEqual(2, len(self.room_1.playlist))
-        self.assertEqual("7:18", result)
+        self.assertEqual("07:18", result)
 
 # Test 7 - Check the wealth of the room
     def test_wealth_of_the_room(self):

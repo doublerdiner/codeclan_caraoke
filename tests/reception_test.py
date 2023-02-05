@@ -2,6 +2,7 @@ import unittest
 from src.reception import Reception
 from src.guest import Guest
 from src.room import Room
+from src.bar import Bar
 
 class TestReception(unittest.TestCase):
     def setUp(self):
@@ -10,6 +11,7 @@ class TestReception(unittest.TestCase):
         self.guest_2 = Guest("Thom Yorke", 10.00, "Karma Police", False)
         self.room_1 = Room(6)
         self.room_2 = Room(1)
+        self.bar = Bar("If You Like Pina Coladas", 150.00)
 
 # Test 1 - 3 - Reception has a till, entry_fee and coat_capacity
     def test_reception_has_till(self):
@@ -25,8 +27,9 @@ class TestReception(unittest.TestCase):
     def test_reception_coat_list_empty(self):
         self.assertEqual(0, len(self.reception.coat_list))
 
-    def test_reception_room_list_empty(self):
-        self.assertEqual(0, len(self.reception.room_list))
+# Didn't need to use the room list
+    # def test_reception_room_list_empty(self):
+    #     self.assertEqual(0, len(self.reception.room_list))
 
 # Test 6 & 7 - Does room have capacity
     def test_does_room_have_capacity__True(self):
@@ -81,17 +84,18 @@ class TestReception(unittest.TestCase):
     def test_check_guest_in(self):
         result = self.reception.check_guest_in(self.guest_1, self.room_1)
         self.assertEqual(1, len(self.room_1.guest_list))
-        self.assertEqual(45.00, self.guest_1.money)
+        self.assertEqual(42.50, self.guest_1.money)
         self.assertEqual(result, "Enjoy your night!")
-
+        self.assertEqual(307.50, self.reception.till)
 
 # Test 13 - Add guest to room - Room is full
     def test_check_guest_in__room_is_full(self):
         self.reception.check_guest_in(self.guest_1, self.room_2)
         result = self.reception.check_guest_in(self.guest_2, self.room_2)
         self.assertEqual(1, len(self.room_2.guest_list))
-        self.assertEqual(45.00, self.guest_1.money)
+        self.assertEqual(42.50, self.guest_1.money)
         self.assertEqual(10.00, self.guest_2.money)
+        self.assertEqual(307.50, self.reception.till)
         self.assertEqual(result, "I'm sorry. That room is full.")
 
 # Test 14 - Add guest to room - Guest has no money
@@ -100,10 +104,27 @@ class TestReception(unittest.TestCase):
         result = self.reception.check_guest_in(self.guest_2, self.room_1)
         self.assertEqual(0, len(self.room_1.guest_list))
         self.assertEqual(3.00, self.guest_2.money)
-        self.assertEqual(result, "I'm sorry the entry fee is £5.00.")
+        self.assertEqual(300, self.reception.till)
+        self.assertEqual(result, "I'm sorry the entry fee is £7.50.")
 
 # Test 15 - Check guest out
     def test_check_guest_out(self):
         self.reception.check_guest_in(self.guest_1, self.room_1)
-        self.reception.check_guest_out(self.guest_1, self.room_1)
+        self.reception.check_guest_out(self.guest_1, self.room_1, self.bar)
         self.assertEqual(0, len(self.room_1.guest_list))
+    
+# Test 16 - Guest tries to leave without paying their bill
+    def test_check_guest_out_unpaid_tab(self):
+        self.reception.check_guest_in(self.guest_1, self.room_1)
+        self.bar.bar_tab[self.room_1] = ["example"]
+        result = self.reception.check_guest_out(self.guest_1, self.room_1, self.bar)
+        self.assertEqual(1, len(self.room_1.guest_list))
+        self.assertEqual("I'm sorry. You can't leave until you've settled your bar tab.", result)
+
+# Test 17 - Add coat to cloakroom. Cloakroom is full
+    def test_cloakroom_is_full(self):
+        self.reception.coat_capacity = 1
+        self.reception.add_coat_to_cloakroom(self.guest_1)
+        result = self.reception.add_coat_to_cloakroom(self.guest_1)
+        self.assertEqual(1, len(self.reception.coat_list))
+        self.assertEqual("I'm sorry the cloakroom is full.", result)

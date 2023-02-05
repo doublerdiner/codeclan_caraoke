@@ -15,7 +15,7 @@ class TestBar(unittest.TestCase):
         self.guest_1 = Guest("David Byrne", 50.00, "Psycho Killer", True)
         self.guest_2 = Guest("Thom Yorke", 10.00, "Karma Police", False)
         self.room_1 = Room(6)
-        self.room_2 = Room(2)
+        self.room_2 = Room(1)
 
 # Test 1 & 2 - Bar has a name and a till
     def test_bar_has_name(self):
