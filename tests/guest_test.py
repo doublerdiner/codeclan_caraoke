@@ -36,3 +36,14 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_a_coat__False(self):
         self.guest_1 = Guest("David Byrne", 50.00, "Psycho Killer", False)
         self.assertEqual(False, self.guest_1.has_coat)
+    
+# Test 6 - Guest can spend money
+    def test_guest_can_spend_money(self):
+        self.guest_1.pay_money(2)
+        self.assertEqual(48, self.guest_1.money)
+    
+# Test 7 - Guest doesn't have enough money
+    def test_guest_does_not_have_enough_money(self):
+        result = self.guest_2.pay_money(12)
+        self.assertEqual(10, self.guest_2.money)
+        self.assertEqual("Not enough money to pay for item", result)

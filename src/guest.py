@@ -19,5 +19,8 @@ class Guest:
     def hears_favourite_song(self, song):
         pass
     
-    def pay_entry_fee(self, reception):
-        pass
+    def pay_money(self, amount):
+        if amount > self.money:
+            return "Not enough money to pay for item"
+        else:
+            self.money -= amount
